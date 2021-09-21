@@ -54,7 +54,7 @@ router.post('/login',(req,res,next)=>{
       });  
     }
     const jswt = jwt.sign({email:fetchedUser.email,userId:fetchedUser._id},
-      process.env.JWT_KEY,
+      "secret_should_be_greater_at_all_times",
       {expiresIn:"1hr"})
       return res.status(200).json({
         "token": jswt,
